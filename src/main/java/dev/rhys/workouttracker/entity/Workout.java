@@ -1,6 +1,5 @@
-package dev.rhys.workouttracker.workout;
+package dev.rhys.workouttracker.entity;
 
-import dev.rhys.workouttracker.users.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,6 +14,7 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
@@ -51,6 +51,12 @@ public class Workout {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
+
+    @Column(name = "volume", nullable = false, precision = 12, scale = 2)
+    private BigDecimal volume = BigDecimal.ZERO;
+
+    @Column(name = "total_sets", nullable = false)
+    private int totalSets;
 
     protected Workout() {
     }
@@ -113,6 +119,22 @@ public class Workout {
 
     public Instant getUpdatedAt() {
         return updatedAt;
+    }
+
+    public BigDecimal getVolume() {
+        return volume;
+    }
+
+    public void setVolume(BigDecimal volume) {
+        this.volume = volume;
+    }
+
+    public int getTotalSets() {
+        return totalSets;
+    }
+
+    public void setTotalSets(int totalSets) {
+        this.totalSets = totalSets;
     }
 
 }

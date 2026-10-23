@@ -1,4 +1,4 @@
-package dev.rhys.workouttracker.users;
+package dev.rhys.workouttracker.entity;
 
 import jakarta.persistence.*;
 import java.time.Instant;
