@@ -22,11 +22,13 @@ public class Exercise {
 
     private String description;
 
-
+    @Enumerated(EnumType.STRING)
+    @Column(name = "exercise_category", nullable = false)
+    private ExerciseCategory exerciseCategory;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "muscle_group", nullable = false)
-    private MuscleGroup muscleGroup;
+    @Column(name = "target_muscle", nullable = false)
+    private TargetMuscle targetMuscle;
 
     protected Exercise() {
     }
@@ -51,12 +53,19 @@ public class Exercise {
         this.description = description;
     }
 
-
-    public MuscleGroup getMuscleGroup() {
-        return muscleGroup;
+    public ExerciseCategory getExerciseCategory() {
+        return exerciseCategory;
     }
 
-    public void setMuscleGroup(MuscleGroup muscleGroup) {
-        this.muscleGroup = muscleGroup;
+    public void setExerciseCategory(ExerciseCategory exerciseCategory) {
+        this.exerciseCategory = exerciseCategory;
+    }
+
+    public TargetMuscle getTargetMuscle() {
+        return targetMuscle;
+    }
+
+    public void setTargetMuscle(TargetMuscle targetMuscle) {
+        this.targetMuscle = targetMuscle;
     }
 }

@@ -34,3 +34,5 @@ out/
 /.nb-gradle/
 
 CLAUDE.md
+
+.mcp.json
