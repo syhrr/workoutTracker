@@ -83,7 +83,7 @@ Integration tests start a real Postgres with Testcontainers, so Docker must be r
 ## Authenticating in Swagger UI
 
 TODO
-
+Used `openssl rand -base64 32` to generate a JWT secret
 ## Example requests
 
 TODO
