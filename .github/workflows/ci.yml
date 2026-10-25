@@ -10,13 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/se
+      - uses: actions/setup-java@v4
         with:
-          distribution:
+          distribution: temurin
           java-version: 21
           cache: maven
 
-      - name: Build and
+      - name: Build and test
         run: ./mvnw -B verify
         env:
           JWT_SECRET: ci-only-secret-at-least-32-bytes-long-0123456789
