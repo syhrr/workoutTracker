@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/se
+        with:
+          distribution:
+          java-version: 21
+          cache: maven
+
+      - name: Build and
+        run: ./mvnw -B verify
+        env:
+          JWT_SECRET: ci-only-secret-at-least-32-bytes-long-0123456789
