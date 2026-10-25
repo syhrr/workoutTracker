@@ -56,9 +56,10 @@ public class AuthService {
         // 1. check if user acc exists in db first
         User user = userRepository.findByEmail(request.email()).orElseThrow(InvalidCredentialsException::new);
         if (!passwordEncoder.matches(request.password(), user.getPasswordHash())){
+            // 2. throw exception if not
             throw new InvalidCredentialsException();
         } else {
-
+            // 3. return an auth response saying "yea theyre valid"
             Instant now = Instant.now();
             JwtClaimsSet claims = JwtClaimsSet.builder()
                     .subject(String.valueOf(user.getId()))
